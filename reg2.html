@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+	<script type="text/javascript" src="jquery-2.2.3.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function()
+ {
+	$('#freg').bind('submit',function()
+    {
+     
+     var that=$(this),
+        data={};
+        that.find('[name]').each(function(index,value)
+        {
+        var that=$(this),
+        name=that.attr('name'),
+        value=that.val();
+        data[name]=value;
+       
+        });
+
+        $.ajax( {
+        url:'reg.php',
+        type:'POST',
+        data:data,
+        success:function(response)
+         {   
+            console.log(response)
+                
+                var y=response;
+                 if(y==0)
+                 {
+                    $('#sp1').html("<CENTER>RESUBMIT</br><b>INFORMATION</b></CENTER>"); 
+                 }
+                else
+                 {
+                    $('#sp1').html("<CENTER>REGISTERED</br><b>successfully</b></CENTER>");
+                   
+                 }
+
+         }
+     });
+
+
+
+ return false;
+ 
+ });
+
+
+
+		
+});
+</script>
+
+<style rel="newreg.css" type="text/css"></style>
+	</head>
+	<body>
+		<div id="regdiv">
+            <center>
+		<form action="signup.html" method="POST" id="freg" autocomplete="off">
+
+<table border="0" cellspacing="0" id="rtb">
+	<tr>
+		<center><th id='th' colspan="4"><span id="sp1">register yourself</span></center>
+		</tH>
+	</tr>
+	<tr>
+		 <td><center> FIRST NAME:</center>
+		</td>
+		<td>
+		<center><input type="text" name="fn" id="fn1"  pattern="[0-9A-Za-z]{3,}" title="three or more characters"></center>
+		</td>
+		<td><center>LAST NAME:</td></center>
+		<td><center> <input type="text" name="ln" id="ln"  pattern="[0-9A-Za-z]{3,}" title="three or more characters"/>
+		</center> </td>
+	</tr>
+	
+	
+	
+    <tr id="tb2">
+        	<td><center>E-mail ID</center>
+        	</td>
+        	<td><center><input type="text" name="ui" class="pi" id="ui"  pattern="[a-zA-Z0-9]{6,}@[a-zA-Z0-9]{2,}.[a-zA-Z0-9]{2,}" title="please input in a valid email address"/></center>
+        	</td>
+        	<td><center>PASSSWORD</center>
+       		 </td>
+       		 <td><center><input type="password" name="pass1" class="pi" id="pass1"  pattern="[0-9A-Za-z]{6,}" title="Six or more characters"/></center>
+        	</td>		
+        	
+      <tr>
+    	<td colspan="1"><center>RE-ENTER PASSWORD</center>
+          	</td>
+       	 	<td><center><input type="password" name="pass2" class="pi" id="pass2"  pattern="[0-9A-Za-z]{6,}" title="Six or more characters">
+        	</center></td>
+        	
+        </tr>		
+        		
+ 
+    </tr>
+    <tr><td colspan="4"><center><input type="submit" id="regbtn" value="REGISTER"/></center></td>
+    </tr>
+   </table>
+ 
+</form>
+</center>
+
+		</div>
+	</body>
+	</html>

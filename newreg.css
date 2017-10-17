@@ -1,0 +1,91 @@
+div
+{
+    border-radius: 10px;
+}
+table[id=mainid]
+{
+	position:relative;
+	left:0px;
+	top:0px;
+    border-radius: 10px;
+}
+#trmenu
+{
+background: green;
+	height:100px;
+}
+.btn
+    {
+    	position: fixed;
+    	right:20px;
+    	top:22px;
+    	height:55px;
+    	width:55px;
+    	opacity:1;
+    	border:none;
+    	box-shadow:  6px 6px  10px  rgb(147,147,147);
+    	border-radius:8px;
+    	z-index:2;
+
+    }
+    .btn1
+    {
+    	position:absolute;
+    	top:20px;
+    	right:100px;
+    	height:55px;
+    	width:55px;
+    	border-radius:15px;
+    	box-shadow:  6px 6px  10px  rgb(147,147,147);
+    	opacity:1;
+    	z-index:2;
+    }
+   
+    #stb
+	{
+		border:1px;
+		height:200px;
+		width: 400px; 
+	
+	}
+	 #rtb
+	{
+		border:1px;
+		height:200px;
+		width: 350px; 
+
+	
+	}
+	#tdiv
+	{
+		background-color:rgb(226,216,216);
+        position:relative;
+        top:100px;
+        width:auto;
+
+    }
+	#regdiv
+	{
+        position: relative;
+		background:orange;
+        top:100px;
+        padding: 50% auto;
+		
+	}
+
+    #hi
+    {
+        background: red;
+        height: 200px;
+        width: 200px;
+    }
+    #title
+    {
+        font-size:50px;
+        color:yellow;
+        font-family: Wedgie;
+    }
+   table
+   {
+    border:none;
+   }

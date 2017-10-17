@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="newreg.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" media="all" /> 
+	<script src="jquery-2.2.3.js"></script>
+<style>
+body
+{
+	background-image: url('look2.png');
+	background-attachment:inherit;
+}
+</style>
+
+	<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$('#stb').show();
+		
+	
+	$("#btn").bind('click',function(){
+
+	$.ajax({
+				
+			url:'reg2.html',
+			success:function(responce){
+
+				$('#regform').html(responce);
+
+			}
+
+
+		});
+	
+	$('#regform').slideToggle();
+
+	$('#stb').hide();
+
+   });
+	    $("#btn2").bind('click',function(){
+		$('#stb').slideToggle();
+		$('#rtb').hide();
+	});
+
+	
+	/*$.ajax( {
+		url:'signup.php',
+		type:'POST',
+		data:data,
+		success:function(responce)
+		{
+			var x=responce;
+			if(x==0)
+			{
+				$('#hi').html("<CENTER>wrong username </br><b>password</b></CENTER>");
+			}
+			else{
+				return  k=true;
+			}
+		}
+	   });*/
+
+
+
+
+
+	
+	/*$('#sign').bind('click',function(e)
+	{
+	  e.preventDefault();
+
+		$.ajax({
+				
+			url:'reg.html',
+			success:function(responce){
+
+				$('#regform').html(responce);
+
+			}
+
+
+		});
+	
+
+	});*/
+
+
+/*$('input').on('keypress',function(){
+	var regxp=/[^a-z 0-9 @ .]/gi;
+var x=$(this);
+var y=x.val();
+
+x.val(y.replace(regxp,''));
+
+
+})
+*/
+
+	});
+	</script>
+
+</head>
+<body >
+<table border="0" height="100%" width="100%" id="maintable">
+<tr>
+<td  id="trmenu" colspan="2">
+<center id="title">REM-PASS</center>
+<input type="image"  src="image/reg2.jpg" id="btn" class="btn"/>
+<input type="image"  src="image/login.jpg" id="btn2"  class="btn1"/>   
+</td>
+</tr>
+<tr>
+
+</td>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$('#sign').on('submit',function(e)
+	{ 
+        e.preventDefault();
+		var that=$(this),
+		data={};
+	    that.find('[name]').each(function(index,value){
+		var that=$(this),
+		name=that.attr('name'),
+		value=that.val();
+		data[name]=value;
+  
+	});
+	console.log(data);
+	$.ajax( {
+		url:'signup.php',
+		type:'POST',
+		data:data,
+		success:function(responce)
+		{
+			var x=responce;
+		
+			if(x==1)
+			{
+		$('#sign').off('submit'); 
+			$('#sign').submit();
+
+			}
+			
+		}
+	   });
+	});
+	});</script>
+<td id="regsign"><center>
+	<div id='regform'></div>
+	<div id="tdiv">
+<form  id="sign" method="POST" action="mainpage.php">
+	<center>		<table border="0" cellspacing="0" id="stb" >
+	        
+				<th colspan="2"><span style="color:blue;font-weight:bold">Rem-pass</span> YOURSELF</th>
+			</tr>
+			<tr>
+				<td id="at" style="cursor:default"><center>@</center>
+				</td>
+				<td><center><input type="text" id="ui" name="username"/><center>
+				</td>
+			</tr>
+			<tr>
+				<td id="at" style="cursor:default"><center>o--j</center>
+				</td>
+				<td><center><input type="password" id="pass" name="password"/></center>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><center><input type="submit" id="sm" value="LOGIN!"/><center></td>
+				
+			</tr>	
+			</table>
+		</form>
+	</div></center>
+		
+</td>
+</tr>
+</table>
+</body>
+</html>

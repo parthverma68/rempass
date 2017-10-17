@@ -1,0 +1,116 @@
+<html>
+<head>
+	<script type="text/javascript" src="jquery-2.2.3.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function()
+ {
+	$('#freg').bind('submit',function()
+    {
+     
+     var that=$(this),
+        data={};
+        that.find('[name]').each(function(index,value)
+        {
+        var that=$(this),
+        name=that.attr('name'),
+        value=that.val();
+        data[name]=value;
+        console.log(data);
+        });
+
+        $.ajax( {
+        url:'reg.php',
+        type:'POST',
+        data:data,
+        success:function(responce)
+         {   
+            console.log(responce)
+                
+            var y=responce;
+             if(y==false)
+             {
+                $('#sp1').html("<CENTER>RESUBMIT</br><b>INFORMATION</b></CENTER>"); 
+             }
+            else
+             {
+                $('#sp1').html("<CENTER>REGISTERED</br><b>successfully</b></CENTER>");
+                return  k=true;
+             }
+
+         }
+       });
+
+
+
+ return false;
+ 
+  });
+
+$('input').on('blur',function(){
+   /* var regxp=/[^a-z 0-9 @ .]/gi;
+var x=$(this);
+var y=x.val();
+
+x.val(y.replace(regxp,''));*/
+var zz=$(this).val();
+alert(zz);
+
+})
+
+});
+</script>
+
+<style rel="newreg.css" type="text/css"></style>
+	</head>
+	<body>
+		<div id="regdiv">
+
+		<form action="signup.html" method="POST" id="freg">
+
+<table border="1" cellspacing="0" id="rtb">
+	<tr>
+		<center><th id='th' colspan="4"><span id="sp1">register yourself</span></center>
+		</tH>
+	</tr>
+	<tr>
+		 <td><center> FIRST NAME:</center>
+		</td>
+		<td>
+		<center><input type="text" name="fn" id="fn1"/></center>
+		</td>
+		<td><center>LAST NAME:</td></center>
+		<td><center> <input type="text" name="ln" id="ln"/>
+		</center> </td>
+	</tr>
+	
+	
+	
+    <tr id="tb2">
+        	<td><center>USER ID</center>
+        	</td>
+        	<td><center><input type="text" name="ui" class="pi" id="ui"/></center>
+        	</td>
+        	<td><center>PASSSWORD</center>
+       		 </td>
+       		 <td><center><input type="password" name="pass1" class="pi" id="pass1"/></center>
+        	</td>		
+        	
+      <tr>
+    	<td colspan="1"><center>RE-ENTER PASSWORD</center>
+          	</td>
+       	 	<td><center><input type="password" name="pass2" class="pi" id="pass2">
+        	</center></td>
+        	
+        </tr>		
+        		
+ 
+    </tr>
+    <tr><td colspan="4"><center><input type="submit" id="regbtn" value="REGISTER"/></center></td>
+    </tr>
+   </table>
+ 
+</form>
+
+		</div>
+	</body>
+	</html>
